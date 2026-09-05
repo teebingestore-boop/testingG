@@ -1,39 +1,31 @@
 /* =========================================================
    GRID STEEL DETAILING — NAVBAR JAVASCRIPT
 
-   FINAL ACTIVE STATE VERSION
+   FINAL STABLE ACTIVE STATE
 
-   NORMAL PAGES
-   → Active state is determined from CURRENT URL
-
-   HOME
-   → index.html
-   → HOME ACTIVE
-
-   ABOUT US
-   → about.html
-   → ABOUT US ACTIVE
-
-   STRUCTURAL STEEL DETAILING
-   → structural-steel-detailing.html
-   → STRUCTURAL STEEL DETAILING ACTIVE
-
-   PROJECTS
-   → projects.html
-   → PROJECTS ACTIVE
-
-   HOW WE WORK
-   → how-we-work.html
-   → HOW WE WORK ACTIVE
-
-   CONTACT US
-   → contact-us.html
-   → CONTACT US ACTIVE
+   Supports:
+   /index.html
+   /
+   /about.html
+   /about
+   /structural-steel-detailing.html
+   /structural-steel-detailing
+   /projects.html
+   /projects
+   /how-we-work.html
+   /how-we-work
+   /contact-us.html
+   /contact-us
 
    GET A QUOTE
-   → contact-us.html
+   → contact-us.html / contact-us
    → GET A QUOTE ACTIVE
    → CONTACT US NOT ACTIVE
+
+   CONTACT US
+   → contact-us.html / contact-us
+   → CONTACT US ACTIVE
+   → GET A QUOTE NOT ACTIVE
 
    Desktop + Mobile
    Stable
@@ -59,8 +51,13 @@
     /* =====================================================
        STORAGE KEY
 
-       ONLY USED FOR:
-       GET A QUOTE vs CONTACT US
+       Used ONLY to distinguish:
+
+       CONTACT US
+       vs
+       GET A QUOTE
+
+       Both open the same contact page.
     ===================================================== */
 
     const ACTIVE_SOURCE_KEY =
@@ -68,7 +65,7 @@
 
 
     /* =====================================================
-       GET ELEMENTS
+       GET NAVBAR ELEMENTS
     ===================================================== */
 
     function getElements() {
@@ -88,7 +85,9 @@
                 document.getElementById("gridMobileOverlay"),
 
             quoteBtn:
-                document.querySelector(".grid-quote-btn"),
+                document.querySelector(
+                    ".grid-quote-btn"
+                ),
 
             contactBtn:
                 document.querySelector(
@@ -109,10 +108,9 @@
         const el = getElements();
 
 
-        /*
-         * Navbar HTML not ready yet.
-         * Wait briefly.
-         */
+        /* =================================================
+           WAIT FOR NAVBAR HTML
+        ================================================= */
 
         if (!el.nav) {
 
@@ -147,12 +145,16 @@
 
         function openMenu() {
 
-            el.nav.classList.add("open");
+            el.nav.classList.add(
+                "open"
+            );
 
 
             if (el.menuBtn) {
 
-                el.menuBtn.classList.add("active");
+                el.menuBtn.classList.add(
+                    "active"
+                );
 
                 el.menuBtn.setAttribute(
                     "aria-expanded",
@@ -169,7 +171,9 @@
 
             if (el.overlay) {
 
-                el.overlay.classList.add("active");
+                el.overlay.classList.add(
+                    "active"
+                );
 
             }
 
@@ -187,12 +191,16 @@
 
         function closeMenu() {
 
-            el.nav.classList.remove("open");
+            el.nav.classList.remove(
+                "open"
+            );
 
 
             if (el.menuBtn) {
 
-                el.menuBtn.classList.remove("active");
+                el.menuBtn.classList.remove(
+                    "active"
+                );
 
                 el.menuBtn.setAttribute(
                     "aria-expanded",
@@ -209,7 +217,9 @@
 
             if (el.overlay) {
 
-                el.overlay.classList.remove("active");
+                el.overlay.classList.remove(
+                    "active"
+                );
 
             }
 
@@ -237,7 +247,9 @@
 
 
                     if (
-                        el.nav.classList.contains("open")
+                        el.nav.classList.contains(
+                            "open"
+                        )
                     ) {
 
                         closeMenu();
@@ -273,7 +285,7 @@
 
 
         /* =================================================
-           CLEAR ALL ACTIVE STATES
+           CLEAR ACTIVE STATES
         ================================================= */
 
         function clearActiveStates() {
@@ -282,21 +294,23 @@
                 .querySelectorAll(
                     ".grid-nav-item, .grid-service-link, .grid-quote-btn"
                 )
-                .forEach(function (item) {
+                .forEach(
+                    function (item) {
 
-                    item.classList.remove(
-                        "active"
-                    );
+                        item.classList.remove(
+                            "active"
+                        );
 
-                    item.classList.remove(
-                        "quote-source-active"
-                    );
+                        item.classList.remove(
+                            "quote-source-active"
+                        );
 
-                    item.removeAttribute(
-                        "aria-current"
-                    );
+                        item.removeAttribute(
+                            "aria-current"
+                        );
 
-                });
+                    }
+                );
 
         }
 
@@ -325,8 +339,8 @@
 
 
             /*
-             * CONTACT US must stay inactive
-             * when Quote is the active source.
+             * CONTACT US must remain inactive
+             * when GET A QUOTE is the source.
              */
 
             if (el.contactBtn) {
@@ -387,61 +401,112 @@
 
 
         /* =================================================
-           GET CURRENT PAGE
+           NORMALIZE PAGE NAME
+           
+           Converts:
+
+           about
+           about.html
+
+           into:
+
+           about.html
         ================================================= */
 
-        function getCurrentPage() {
+        function normalizePage(page) {
 
-            let pathname =
-                window.location.pathname || "";
+            if (!page) {
 
-
-            /*
-             * Remove query string and hash.
-             */
-
-            pathname =
-                pathname
-                    .split("?")[0]
-                    .split("#")[0];
-
-
-            /*
-             * Get only the filename.
-             */
-
-            let page =
-                pathname
-                    .split("/")
-                    .filter(Boolean)
-                    .pop();
-
-
-            /*
-             * Root URL:
-             *
-             * /
-             * /index.html
-             *
-             * Both mean HOME.
-             */
-
-            if (
-                !page ||
-                page === ""
-            ) {
-
-                page = "index.html";
+                return "index.html";
 
             }
 
 
             page =
+                page
+                    .split("?")[0]
+                    .split("#")[0]
+                    .split("/")
+                    .filter(Boolean)
+                    .pop() || "index.html";
+
+
+            page =
                 decodeURIComponent(page)
-                    .toLowerCase();
+                    .toLowerCase()
+                    .trim();
+
+
+            /*
+             * Root URL
+             */
+
+            if (!page) {
+
+                return "index.html";
+
+            }
+
+
+            /*
+             * Netlify pretty URL
+
+             * about
+             * projects
+             * contact-us
+
+             * becomes:
+
+             * about.html
+             * projects.html
+             * contact-us.html
+             */
+
+            if (
+                !page.includes(".")
+            ) {
+
+                page += ".html";
+
+            }
 
 
             return page;
+
+        }
+
+
+        /* =================================================
+           GET CURRENT PAGE
+        ================================================= */
+
+        function getCurrentPage() {
+
+            const pathname =
+                window.location.pathname || "";
+
+
+            /*
+             * Root website
+             *
+             * /
+             *
+             * means Home.
+             */
+
+            if (
+                pathname === "/" ||
+                pathname === ""
+            ) {
+
+                return "index.html";
+
+            }
+
+
+            return normalizePage(
+                pathname
+            );
 
         }
 
@@ -455,21 +520,11 @@
             clearActiveStates();
 
 
-            if (!page) {
-                return;
-            }
-
-
             const targetPage =
-                page
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
+                normalizePage(
+                    page
+                );
 
-
-            /*
-             * Find matching navigation item.
-             */
 
             const navItems =
                 el.nav.querySelectorAll(
@@ -477,39 +532,34 @@
                 );
 
 
-            navItems.forEach(function (item) {
+            navItems.forEach(
+                function (item) {
 
-                const itemPage =
-                    (
-                        item.getAttribute(
-                            "data-page"
-                        ) || ""
-                    )
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
+                    const itemPage =
+                        normalizePage(
+                            item.getAttribute(
+                                "data-page"
+                            )
+                        );
 
 
-                /*
-                 * Exact filename match.
-                 */
+                    if (
+                        itemPage === targetPage
+                    ) {
 
-                if (
-                    itemPage === targetPage
-                ) {
+                        item.classList.add(
+                            "active"
+                        );
 
-                    item.classList.add(
-                        "active"
-                    );
+                        item.setAttribute(
+                            "aria-current",
+                            "page"
+                        );
 
-                    item.setAttribute(
-                        "aria-current",
-                        "page"
-                    );
+                    }
 
                 }
-
-            });
+            );
 
         }
 
@@ -540,7 +590,7 @@
             ) {
 
                 /*
-                 * Came through GET A QUOTE
+                 * GET A QUOTE → Contact page
                  */
 
                 if (
@@ -555,7 +605,9 @@
 
 
                 /*
-                 * Normal/direct CONTACT US
+                 * Direct CONTACT US
+                 *
+                 * Default contact state.
                  */
 
                 activateContact();
@@ -566,12 +618,12 @@
 
 
             /* =============================================
-               ALL NORMAL PAGES
+               ALL OTHER PAGES
             ============================================= */
 
             /*
-             * Quote/contact state should not remain
-             * active on another page.
+             * Quote/contact source has no meaning
+             * on other pages.
              */
 
             sessionStorage.removeItem(
@@ -580,8 +632,15 @@
 
 
             /*
-             * Activate strictly according
-             * to the current URL.
+             * IMPORTANT:
+             *
+             * Active state comes from CURRENT URL.
+             *
+             * This works with both:
+             *
+             * /about
+             *
+             * /about.html
              */
 
             activatePage(
@@ -602,8 +661,8 @@
                 function () {
 
                     /*
-                     * Remember that contact-us.html
-                     * was reached through GET A QUOTE.
+                     * Remember that contact page
+                     * was opened through GET A QUOTE.
                      */
 
                     sessionStorage.setItem(
@@ -613,8 +672,7 @@
 
 
                     /*
-                     * Show Quote as active immediately
-                     * before navigation.
+                     * Immediately highlight Quote.
                      */
 
                     activateQuote();
@@ -636,81 +694,79 @@
             .querySelectorAll(
                 ".grid-nav-item"
             )
-            .forEach(function (link) {
+            .forEach(
+                function (link) {
 
-                link.addEventListener(
-                    "click",
-                    function () {
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                        const page =
-                            (
-                                link.getAttribute(
-                                    "data-page"
-                                ) || ""
-                            )
-                            .split("/")
-                            .pop()
-                            .toLowerCase();
+                            const page =
+                                normalizePage(
+                                    link.getAttribute(
+                                        "data-page"
+                                    )
+                                );
 
 
-                        /* =================================
-                           CONTACT US
-                        ================================= */
+                            /* =================================
+                               CONTACT US
+                            ================================= */
 
-                        if (
-                            page === "contact-us.html" ||
-                            page === "contact.html"
-                        ) {
+                            if (
+                                page === "contact-us.html" ||
+                                page === "contact.html"
+                            ) {
 
-                            /*
-                             * Contact was clicked directly.
-                             */
+                                /*
+                                 * Direct Contact click.
+                                 */
 
-                            sessionStorage.setItem(
-                                ACTIVE_SOURCE_KEY,
-                                "contact"
-                            );
+                                sessionStorage.setItem(
+                                    ACTIVE_SOURCE_KEY,
+                                    "contact"
+                                );
 
 
-                            activateContact();
+                                activateContact();
+
+                            }
+
+
+                            /* =================================
+                               NORMAL PAGES
+                            ================================= */
+
+                            else {
+
+                                /*
+                                 * Remove old special state.
+                                 */
+
+                                sessionStorage.removeItem(
+                                    ACTIVE_SOURCE_KEY
+                                );
+
+
+                                /*
+                                 * Immediately highlight
+                                 * clicked navigation item.
+                                 */
+
+                                activatePage(
+                                    page
+                                );
+
+                            }
+
+
+                            closeMenu();
 
                         }
+                    );
 
-
-                        /* =================================
-                           ALL OTHER PAGES
-                        ================================= */
-
-                        else {
-
-                            /*
-                             * Remove any old Quote/Contact
-                             * state immediately.
-                             */
-
-                            sessionStorage.removeItem(
-                                ACTIVE_SOURCE_KEY
-                            );
-
-
-                            /*
-                             * Highlight clicked page
-                             * immediately.
-                             */
-
-                            activatePage(
-                                page
-                            );
-
-                        }
-
-
-                        closeMenu();
-
-                    }
-                );
-
-            });
+                }
+            );
 
 
         /* =================================================
@@ -721,26 +777,28 @@
             .querySelectorAll(
                 ".grid-service-link"
             )
-            .forEach(function (link) {
+            .forEach(
+                function (link) {
 
-                link.addEventListener(
-                    "click",
-                    function () {
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                        sessionStorage.removeItem(
-                            ACTIVE_SOURCE_KEY
-                        );
-
-
-                        clearActiveStates();
+                            sessionStorage.removeItem(
+                                ACTIVE_SOURCE_KEY
+                            );
 
 
-                        closeMenu();
+                            clearActiveStates();
 
-                    }
-                );
 
-            });
+                            closeMenu();
+
+                        }
+                    );
+
+                }
+            );
 
 
         /* =================================================
@@ -816,7 +874,7 @@
 
 
         /* =================================================
-           INITIAL STATE
+           INITIAL ACTIVE STATE
         ================================================= */
 
         restoreActiveState();
@@ -825,7 +883,7 @@
 
 
     /* =====================================================
-       START
+       START NAVBAR
     ===================================================== */
 
     if (
