@@ -1,0 +1,944 @@
+/* =========================================================
+   GRID DETAILING — NAVBAR
+   CLEAN / STABLE / NO DESIGN CHANGE
+========================================================= */
+
+:root{
+    --navy:#0F2339;
+    --navy-dark:#091522;
+    --navy-light:#162F4A;
+
+    --orange:#F26A09;
+    --orange-hover:#d95700;
+
+    --white:#ffffff;
+
+    --text:#172534;
+    --muted:#71808d;
+    --border:#e4e9ee;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+.grid-navbar,
+.grid-navbar *,
+.grid-navbar *::before,
+.grid-navbar *::after{
+    box-sizing:border-box;
+}
+
+
+.grid-navbar{
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:5000;
+
+    width:100%;
+    min-height:82px;
+
+    background:rgba(255,255,255,.98);
+
+    border-bottom:
+        1px solid rgba(15,35,57,.08);
+
+    box-shadow:
+        0 8px 30px rgba(15,35,57,.06);
+
+    font-family:
+        "Manrope",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+
+/* =========================================================
+   FIXED NAVBAR — CONTENT OFFSET
+========================================================= */
+
+body{
+    padding-top:82px;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.grid-navbar a{
+    text-decoration:none !important;
+}
+
+
+.grid-navbar button{
+    font-family:
+        "Manrope",
+        Arial,
+        Helvetica,
+        sans-serif !important;
+}
+
+
+.grid-navbar img{
+    max-width:none;
+}
+
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.grid-nav-inner{
+    width:
+        min(
+            1240px,
+            calc(100% - 44px)
+        );
+
+    min-height:82px;
+
+    margin:0 auto;
+
+    display:flex;
+    align-items:center;
+
+    gap:22px;
+
+    position:relative;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.grid-navbar .grid-brand,
+.grid-navbar .grid-brand *{
+    font-family:
+        "Manrope",
+        Arial,
+        Helvetica,
+        sans-serif !important;
+}
+
+
+.grid-navbar .grid-brand{
+    flex:0 0 auto;
+
+    display:flex !important;
+
+    align-items:center !important;
+
+    gap:12px !important;
+
+    color:var(--navy) !important;
+
+    text-decoration:none !important;
+
+    line-height:normal !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    background:transparent !important;
+
+    border:0 !important;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.grid-navbar .grid-brand-logo{
+    width:48px !important;
+    height:48px !important;
+
+    flex:0 0 48px !important;
+
+    display:flex !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+
+    overflow:hidden !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    background:transparent !important;
+
+    border:0 !important;
+}
+
+
+.grid-navbar .grid-brand-logo img{
+    width:100% !important;
+    height:100% !important;
+
+    max-width:100% !important;
+
+    display:block !important;
+
+    object-fit:contain !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    border:0 !important;
+    outline:0 !important;
+
+    box-shadow:none !important;
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.grid-brand-copy{
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:4px;
+
+    white-space:nowrap;
+}
+
+
+.grid-brand-copy .brand-name{
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin:0;
+    padding:0;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    letter-spacing:-.4px;
+}
+
+
+.grid-brand-copy .brand-grid-text{
+    color:#0F2339 !important;
+}
+
+
+.grid-brand-copy .brand-steel-text{
+    color:#F26A09 !important;
+}
+
+
+.grid-brand-copy .brand-tagline{
+    display:block;
+
+    margin:0;
+    padding:0;
+
+    color:#6B7882 !important;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:1.25px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.grid-nav-links{
+    margin-left:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:0;
+
+    flex:0 0 auto;
+}
+
+
+/* =========================================================
+   NAV ITEMS
+========================================================= */
+
+.grid-navbar .grid-nav-item{
+    position:relative;
+
+    min-height:44px;
+
+    padding:0 10px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:0 !important;
+
+    outline:0;
+
+    background:transparent !important;
+
+    color:var(--navy) !important;
+
+    font-family:
+        "Manrope",
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    font-size:11px !important;
+
+    font-weight:800 !important;
+
+    line-height:1 !important;
+
+    letter-spacing:.45px !important;
+
+    text-transform:uppercase !important;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        background .25s ease;
+}
+
+
+.grid-navbar .grid-nav-item::after{
+    content:"";
+
+    position:absolute;
+
+    left:10px;
+    right:10px;
+
+    bottom:5px;
+
+    height:2px;
+
+    background:var(--orange);
+
+    transform:scaleX(0);
+
+    transform-origin:center;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.grid-navbar .grid-nav-item:hover{
+    color:var(--orange) !important;
+}
+
+
+.grid-navbar .grid-nav-item:hover::after,
+.grid-navbar .grid-nav-item.active::after{
+    transform:scaleX(1);
+}
+
+
+.grid-navbar .grid-nav-item.active{
+    color:var(--orange) !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   CONTACT NAV ITEM MUST NEVER GET CTA ACTIVE COLOR
+========================================================= */
+
+.grid-navbar
+.grid-nav-item[data-contact="true"].quote-source-active{
+    color:var(--navy) !important;
+
+    background:transparent !important;
+}
+
+
+.grid-navbar
+.grid-nav-item[data-contact="true"].quote-source-active::after{
+    transform:scaleX(0) !important;
+}
+
+
+/* =========================================================
+   GET A QUOTE BUTTON
+========================================================= */
+
+.grid-quote-btn{
+    flex:0 0 auto;
+
+    min-height:38px;
+
+    padding:0 12px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    border-radius:7px;
+
+    background:var(--orange) !important;
+
+    color:#ffffff !important;
+
+    font-family:
+        "Manrope",
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    font-size:9px !important;
+
+    font-weight:900 !important;
+
+    line-height:1 !important;
+
+    letter-spacing:.55px !important;
+
+    text-transform:uppercase !important;
+
+    text-decoration:none !important;
+
+    white-space:nowrap;
+
+    box-shadow:
+        0 6px 16px rgba(242,106,9,.18);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.grid-quote-btn .quote-text{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-family:inherit !important;
+
+    font-size:inherit !important;
+
+    line-height:1 !important;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   GET A QUOTE ACTIVE
+========================================================= */
+
+.grid-navbar .grid-quote-btn.active{
+    background:#0F2339 !important;
+
+    color:#FFFFFF !important;
+
+    box-shadow:
+        0 6px 16px rgba(15,35,57,.18);
+
+    transform:none !important;
+}
+
+
+.grid-navbar
+.grid-quote-btn.active
+.quote-text{
+    color:#FFFFFF !important;
+}
+
+
+/* =========================================================
+   GET A QUOTE HOVER
+========================================================= */
+
+.grid-quote-btn:hover{
+    background:var(--orange-hover) !important;
+
+    color:#ffffff !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(242,106,9,.24);
+}
+
+
+.grid-navbar .grid-quote-btn.active:hover{
+    background:#091522 !important;
+
+    color:#ffffff !important;
+
+    transform:translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.grid-menu-btn{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    margin-left:auto;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid rgba(15,35,57,.12);
+
+    border-radius:10px;
+
+    background:#ffffff !important;
+
+    color:var(--navy);
+
+    cursor:pointer;
+
+    position:relative;
+
+    padding:0;
+
+    outline:0;
+}
+
+
+.grid-menu-lines{
+    width:20px;
+    height:15px;
+
+    position:relative;
+}
+
+
+.grid-menu-lines span{
+    position:absolute;
+
+    left:0;
+
+    width:20px;
+    height:2px;
+
+    border-radius:5px;
+
+    background:var(--navy);
+
+    transition:
+        transform .25s ease,
+        top .25s ease,
+        opacity .2s ease;
+}
+
+
+.grid-menu-lines span:nth-child(1){
+    top:0;
+}
+
+
+.grid-menu-lines span:nth-child(2){
+    top:6px;
+}
+
+
+.grid-menu-lines span:nth-child(3){
+    top:12px;
+}
+
+
+.grid-menu-btn.active{
+    background:var(--navy) !important;
+
+    border-color:var(--navy);
+}
+
+
+.grid-menu-btn.active
+.grid-menu-lines span{
+    background:#ffffff;
+}
+
+
+.grid-menu-btn.active
+.grid-menu-lines span:nth-child(1){
+    top:6px;
+
+    transform:rotate(45deg);
+}
+
+
+.grid-menu-btn.active
+.grid-menu-lines span:nth-child(2){
+    opacity:0;
+}
+
+
+.grid-menu-btn.active
+.grid-menu-lines span:nth-child(3){
+    top:6px;
+
+    transform:rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .grid-navbar{
+        min-height:72px;
+    }
+
+
+    /* MOBILE CONTENT OFFSET */
+
+    body{
+        padding-top:72px;
+    }
+
+
+    .grid-nav-inner{
+        min-height:72px;
+
+        width:
+            calc(100% - 28px);
+
+        gap:10px;
+    }
+
+
+    .grid-navbar .grid-brand-logo{
+        width:42px !important;
+        height:42px !important;
+
+        flex-basis:42px !important;
+    }
+
+
+    .grid-brand-copy .brand-name{
+        font-size:15px;
+    }
+
+
+    .grid-brand-copy .brand-tagline{
+        font-size:6px;
+
+        letter-spacing:1px;
+    }
+
+
+    /*
+       IMPORTANT:
+       GET A QUOTE MOBILE PAR BHI VISIBLE
+    */
+
+    .grid-quote-btn{
+        display:inline-flex !important;
+
+        min-height:36px;
+
+        padding:0 10px;
+
+        margin-left:auto;
+
+        font-size:8px !important;
+
+        flex:0 0 auto;
+    }
+
+
+    .grid-quote-btn .quote-text{
+        font-size:8px !important;
+    }
+
+
+    /* MENU */
+
+    .grid-menu-btn{
+        display:flex;
+
+        margin-left:0;
+    }
+
+
+    /* MOBILE NAV */
+
+    .grid-nav-links{
+        position:absolute;
+
+        top:calc(100% + 8px);
+
+        left:0;
+        right:0;
+
+        margin:0;
+
+        padding:10px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:3px;
+
+        background:
+            rgba(255,255,255,.99);
+
+        border:
+            1px solid rgba(15,35,57,.09);
+
+        border-radius:16px;
+
+        box-shadow:
+            0 25px 60px rgba(15,35,57,.16);
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transform:translateY(-8px);
+
+        transition:
+            opacity .2s ease,
+            transform .2s ease,
+            visibility .2s ease;
+
+        max-height:
+            calc(100vh - 95px);
+
+        overflow-y:auto;
+
+        z-index:9999;
+    }
+
+
+    .grid-nav-links.open{
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        transform:translateY(0);
+    }
+
+
+    .grid-navbar .grid-nav-item{
+        width:100%;
+
+        min-height:50px;
+
+        justify-content:flex-start;
+
+        padding:0 15px;
+
+        border-radius:9px;
+
+        font-size:12px !important;
+
+        text-align:left;
+    }
+
+
+    .grid-navbar .grid-nav-item::after{
+        display:none;
+    }
+
+
+    .grid-navbar .grid-nav-item:hover{
+        background:#fff4ec !important;
+
+        color:var(--orange) !important;
+    }
+
+
+    .grid-navbar .grid-nav-item.active{
+        background:#fff7f2 !important;
+
+        color:var(--orange) !important;
+    }
+
+
+    /* =====================================================
+       MOBILE OVERLAY
+    ===================================================== */
+
+    .grid-mobile-overlay{
+        position:fixed;
+
+        inset:0;
+
+        z-index:4000;
+
+        display:block;
+
+        background:
+            rgba(9,21,34,.25);
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transition:
+            opacity .2s ease,
+            visibility .2s ease;
+    }
+
+
+    .grid-mobile-overlay.active{
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+    }
+
+
+    body.grid-nav-menu-open{
+        overflow:hidden;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:430px){
+
+    .grid-nav-inner{
+        width:
+            calc(100% - 20px);
+
+        gap:7px;
+    }
+
+
+    .grid-brand-copy .brand-name{
+        font-size:14px;
+    }
+
+
+    .grid-brand-copy .brand-tagline{
+        display:none;
+    }
+
+
+    .grid-navbar .grid-brand-logo{
+        width:40px !important;
+        height:40px !important;
+
+        flex-basis:40px !important;
+    }
+
+
+    /*
+       SMALL MOBILE QUOTE
+    */
+
+    .grid-quote-btn{
+        min-height:34px;
+
+        padding:0 8px;
+
+        font-size:7px !important;
+    }
+
+
+    .grid-quote-btn .quote-text{
+        font-size:7px !important;
+        letter-spacing:.3px !important;
+    }
+
+
+    .grid-menu-btn{
+        width:42px;
+        height:42px;
+
+        flex:0 0 42px;
+    }
+
+
+    .grid-nav-links{
+        left:0;
+        right:0;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .grid-navbar * ,
+    .grid-navbar *::before,
+    .grid-navbar *::after{
+        transition:none !important;
+
+        animation:none !important;
+    }
+
+}
+

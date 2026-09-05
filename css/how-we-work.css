@@ -1,0 +1,3828 @@
+/* =========================================================
+   GRID STEEL DETAILING
+   HOW WE WORK
+   RESPONSIVE VERSION
+========================================================= */
+
+
+:root{
+
+    --navy:#0F2339;
+    --navy-dark:#081725;
+    --navy-light:#18344F;
+
+    --orange:#F26A09;
+
+    --muted:#687887;
+
+    --line:#D9E1E6;
+
+    --ease:cubic-bezier(.22,1,.36,1);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+    margin:0;
+
+    background:#fff;
+
+    color:var(--navy);
+
+    font-family:"DM Sans",sans-serif;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   WORKFLOW HERO
+========================================================= */
+
+.workflow-hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:520px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    background:var(--navy);
+
+    color:#fff;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   HERO BACKGROUND DETAILS
+========================================================= */
+
+.workflow-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:620px;
+
+    height:620px;
+
+    right:-280px;
+
+    top:-170px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:50%;
+
+    box-shadow:
+
+        0 0 0 70px rgba(255,255,255,.018),
+
+        0 0 0 140px rgba(255,255,255,.012);
+
+    pointer-events:none;
+
+}
+
+
+.workflow-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    right:90px;
+
+    bottom:-175px;
+
+    border:1px solid rgba(242,106,9,.22);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.workflow-hero-inner{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    max-width:1050px;
+
+    margin:0;
+
+}
+
+
+.workflow-hero .orange-line{
+
+    width:35px;
+
+    height:2px;
+
+    margin:0 0 15px;
+
+    background:var(--orange);
+
+}
+
+
+.workflow-hero .eyebrow{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--orange);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:2.2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.workflow-hero h1{
+
+    max-width:920px;
+
+    color:#fff;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(
+        44px,
+        6vw,
+        78px
+    );
+
+    line-height:1;
+
+    letter-spacing:clamp(
+        -3.5px,
+        -.3vw,
+        -2px
+    );
+
+    font-weight:800;
+
+}
+
+
+.workflow-hero h1 span{
+
+    display:block;
+
+    color:var(--orange);
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.workflow-hero p{
+
+    width:100%;
+
+    max-width:850px;
+
+    margin:20px 0 0;
+
+    color:rgba(255,255,255,.68);
+
+    font-size:14px;
+
+    line-height:1.75;
+
+}
+
+
+.workflow-hero p strong{
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   HERO POINTS
+========================================================= */
+
+.workflow-hero-points{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:20px;
+
+}
+
+
+.workflow-hero-points span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    height:31px;
+
+    padding:0 11px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.035);
+
+    color:rgba(255,255,255,.72);
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+
+}
+
+
+.workflow-hero-points i{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:17px;
+
+    height:17px;
+
+    border:1px solid rgba(242,106,9,.55);
+
+    color:var(--orange);
+
+    font-size:6px;
+
+    font-style:normal;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   HERO BOTTOM STATEMENT
+========================================================= */
+
+.workflow-hero-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:17px;
+
+    color:rgba(255,255,255,.42);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.workflow-hero-bottom::before{
+
+    content:"";
+
+    width:20px;
+
+    height:1px;
+
+    background:var(--orange);
+
+}
+
+
+.workflow-hero-bottom span{
+
+    color:rgba(255,255,255,.72);
+
+}
+
+
+/* =========================================================
+   WORKFLOW HERO — LAPTOP
+========================================================= */
+
+@media(min-width:901px) and (max-width:1050px){
+
+    .workflow-hero{
+
+        height:560px;
+
+        padding-left:65px;
+
+        padding-right:65px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        max-width:850px;
+
+        font-size:clamp(
+            42px,
+            6vw,
+            68px
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   WORKFLOW HERO — TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    .workflow-hero{
+
+        height:600px;
+
+        padding-left:4%;
+
+        padding-right:4%;
+
+    }
+
+
+    .workflow-hero h1{
+
+        max-width:780px;
+
+        font-size:clamp(
+            40px,
+            7.2vw,
+            64px
+        );
+
+        line-height:1;
+
+        letter-spacing:-2.5px;
+
+    }
+
+
+    .workflow-hero p{
+
+        max-width:760px;
+
+        font-size:14px;
+
+        line-height:1.75;
+
+    }
+
+
+    .workflow-hero-points{
+
+        max-width:760px;
+
+    }
+
+}
+
+
+/* =========================================================
+   WORKFLOW HERO — MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+    .workflow-hero{
+
+        height:600px;
+
+        padding-left:20px;
+
+        padding-right:20px;
+
+    }
+
+
+    .workflow-hero-inner{
+
+        max-width:620px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        max-width:600px;
+
+        font-size:clamp(
+            37px,
+            11.5vw,
+            52px
+        );
+
+        line-height:1.02;
+
+        letter-spacing:-2px;
+
+    }
+
+
+    .workflow-hero p{
+
+        max-width:620px;
+
+        margin-top:17px;
+
+        font-size:13px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero .orange-line{
+
+        width:30px;
+
+        margin-bottom:13px;
+
+    }
+
+
+    .workflow-hero-points{
+
+        gap:6px;
+
+        margin-top:18px;
+
+    }
+
+
+    .workflow-hero-points span{
+
+        height:29px;
+
+        padding:0 8px;
+
+        font-size:7px;
+
+    }
+
+
+    .workflow-hero-points i{
+
+        width:16px;
+
+        height:16px;
+
+        font-size:5.5px;
+
+    }
+
+
+    .workflow-hero-bottom{
+
+        margin-top:15px;
+
+        font-size:8px;
+
+        letter-spacing:.9px;
+
+    }
+
+}
+
+
+/* =========================================================
+   WORKFLOW HERO — SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .workflow-hero{
+
+        height:620px;
+
+        padding-left:18px;
+
+        padding-right:18px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:40px;
+
+        line-height:1.03;
+
+        letter-spacing:-1.8px;
+
+    }
+
+
+    .workflow-hero p{
+
+        font-size:12.5px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero-points{
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        width:100%;
+
+        gap:6px;
+
+    }
+
+
+    .workflow-hero-points span{
+
+        width:100%;
+
+        justify-content:flex-start;
+
+        font-size:6.5px;
+
+    }
+
+
+    .workflow-hero-bottom{
+
+        flex-wrap:wrap;
+
+        line-height:1.5;
+
+    }
+
+}
+
+
+/* =========================================================
+   WORKFLOW HERO — VERY SMALL
+========================================================= */
+
+@media(max-width:360px){
+
+    .workflow-hero{
+
+        height:640px;
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:36px;
+
+        line-height:1.04;
+
+        letter-spacing:-1.5px;
+
+    }
+
+
+    .workflow-hero p{
+
+        font-size:12px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero-points span{
+
+        font-size:6px;
+
+        padding:0 6px;
+
+    }
+
+
+    .workflow-hero-bottom{
+
+        font-size:7px;
+
+    }
+
+}
+
+/* =========================================================
+   WORKFLOW
+========================================================= */
+
+.workflow{
+
+    position:relative;
+
+    background:#fff;
+
+    overflow:hidden;
+
+    padding:70px 0 110px;
+
+}
+
+
+.workflow::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.45;
+
+    background-image:
+
+        linear-gradient(
+            rgba(15,35,57,.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(15,35,57,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    -webkit-mask-image:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 12%,
+            black 88%,
+            transparent
+        );
+
+    mask-image:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 12%,
+            black 88%,
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:min(
+        1100px,
+        calc(100% - 40px)
+    );
+
+    margin:0 auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.workflow-heading{
+
+    max-width:760px;
+
+    margin:0 auto 55px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+
+.orange-line{
+
+    width:35px;
+
+    height:2px;
+
+    background:var(--orange);
+
+    margin:0 auto 15px;
+
+}
+
+
+.eyebrow{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--orange);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.workflow-heading h1{
+
+    color:var(--navy);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(
+        40px,
+        5vw,
+        62px
+    );
+
+    line-height:1.02;
+
+    letter-spacing:-3px;
+
+    font-weight:800;
+
+}
+
+
+.workflow-heading h1 span{
+
+    color:var(--orange);
+
+}
+
+
+.workflow-heading p{
+
+    max-width:700px;
+
+    margin:18px auto 0;
+
+    color:#687887;
+
+    font-size:12px;
+
+    line-height:1.75;
+
+}
+
+
+.workflow-heading p strong{
+
+    color:var(--navy);
+
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-3d{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+}
+
+
+/* =========================================================
+   PROCESS CARD
+========================================================= */
+
+.process-3d-card{
+
+    position:relative;
+
+    min-height:290px;
+
+    padding:35px 40px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #fff,
+            #F7F9FA
+        );
+
+    border:1px solid #D9E1E6;
+
+    box-shadow:
+
+        0 12px 0 rgba(15,35,57,.035),
+
+        0 28px 60px rgba(15,35,57,.08);
+
+    transform-style:preserve-3d;
+
+    transition:
+
+        transform .55s var(--ease),
+
+        box-shadow .55s ease,
+
+        border-color .4s ease;
+
+}
+
+
+.process-3d-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:5px;
+
+    background:var(--orange);
+
+}
+
+
+.process-3d-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-50px;
+
+    top:-50px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(242,106,9,.15);
+
+    box-shadow:
+
+        inset 0 0 0 18px rgba(242,106,9,.025),
+
+        inset 0 0 0 38px rgba(242,106,9,.02);
+
+    transition:.6s ease;
+
+}
+
+
+.process-3d-card:hover{
+
+    transform:
+
+        perspective(1200px)
+
+        rotateX(2deg)
+
+        rotateY(-2deg)
+
+        translateY(-12px);
+
+    border-color:rgba(242,106,9,.4);
+
+    box-shadow:
+
+        0 18px 0 rgba(242,106,9,.08),
+
+        0 35px 75px rgba(15,35,57,.14);
+
+}
+
+
+.process-3d-card:hover::after{
+
+    transform:
+
+        scale(1.3)
+
+        rotate(25deg);
+
+}
+
+
+.process-offset{
+
+    margin-left:100px;
+
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.process-top{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:30px;
+
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.process-number{
+
+    width:58px;
+
+    height:58px;
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--navy);
+
+    color:#fff;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    transform:
+
+        translateZ(28px)
+
+        rotate(-3deg);
+
+    box-shadow:
+
+        8px 8px 0 var(--orange),
+
+        0 15px 25px rgba(15,35,57,.16);
+
+    transition:
+
+        transform .45s var(--ease),
+
+        box-shadow .45s ease;
+
+}
+
+
+.process-3d-card:hover .process-number{
+
+    transform:
+
+        translateZ(45px)
+
+        rotate(0)
+
+        scale(1.08);
+
+    box-shadow:
+
+        10px 10px 0 var(--orange),
+
+        0 20px 35px rgba(15,35,57,.2);
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.process-icon{
+
+    width:78px;
+
+    height:78px;
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #fff,
+            #EDF1F4
+        );
+
+    border:1px solid #DCE3E8;
+
+    box-shadow:
+
+        8px 8px 0 rgba(15,35,57,.07),
+
+        0 18px 35px rgba(15,35,57,.1);
+
+    font-size:40px;
+
+    transform:
+
+        translateZ(35px)
+
+        rotate(3deg);
+
+    transition:
+
+        transform .5s var(--ease),
+
+        box-shadow .5s ease;
+
+    user-select:none;
+
+}
+
+
+.process-3d-card:hover .process-icon{
+
+    transform:
+
+        translateZ(65px)
+
+        rotate(-5deg)
+
+        scale(1.08);
+
+    box-shadow:
+
+        10px 12px 0 rgba(242,106,9,.12),
+
+        0 25px 45px rgba(15,35,57,.16);
+
+}
+
+
+.process-icon .icon{
+
+    display:block;
+
+    line-height:1;
+
+    transform:translateZ(12px);
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.process-content{
+
+    position:relative;
+
+    z-index:2;
+
+    transform:translateZ(22px);
+
+}
+
+
+.process-label{
+
+    display:block;
+
+    color:var(--orange);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.process-content h3{
+
+    margin-top:10px;
+
+    color:var(--navy);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(
+        22px,
+        3vw,
+        29px
+    );
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    font-weight:800;
+
+}
+
+
+.process-content p{
+
+    max-width:710px;
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.9;
+
+}
+
+
+.process-content strong{
+
+    color:var(--navy);
+
+}
+
+
+/* =========================================================
+   SHADOW
+========================================================= */
+
+.process-shadow{
+
+    position:absolute;
+
+    left:20px;
+
+    right:20px;
+
+    bottom:-12px;
+
+    height:18px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(15,35,57,.1),
+            transparent
+        );
+
+    filter:blur(7px);
+
+    opacity:.75;
+
+    transition:.5s ease;
+
+}
+
+
+.process-3d-card:hover .process-shadow{
+
+    opacity:1;
+
+    transform:
+
+        scaleX(.82)
+
+        translateY(8px);
+
+}
+
+
+/* =========================================================
+   CONNECTOR
+========================================================= */
+
+.process-connector{
+
+    position:relative;
+
+    height:100px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.process-connector::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    width:1px;
+
+    background:
+
+        repeating-linear-gradient(
+            to bottom,
+            var(--orange) 0,
+            var(--orange) 5px,
+            transparent 5px,
+            transparent 11px
+        );
+
+    opacity:.5;
+
+}
+
+
+.process-connector span{
+
+    position:relative;
+
+    z-index:2;
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(242,106,9,.35);
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:var(--orange);
+
+    font-size:17px;
+
+    box-shadow:
+
+        0 10px 25px rgba(15,35,57,.09);
+
+    animation:
+
+        connectorFloat
+
+        2s
+
+        ease-in-out
+
+        infinite;
+
+}
+
+
+@keyframes connectorFloat{
+
+    0%,
+    100%{
+
+        transform:translateY(-3px);
+
+    }
+
+    50%{
+
+        transform:translateY(4px);
+
+    }
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.process-summary{
+
+    position:relative;
+
+    margin-top:60px;
+
+    min-height:270px;
+
+    padding:34px 42px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:155px minmax(0,1fr);
+
+    align-items:center;
+
+    gap:38px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0F2339 0%,
+            #112B44 55%,
+            #0A1B2B 100%
+        );
+
+    color:#fff;
+
+    border:1px solid rgba(15,35,57,.2);
+
+    box-shadow:
+
+        0 18px 0 rgba(15,35,57,.045),
+
+        0 30px 70px rgba(15,35,57,.16);
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.summary-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.42;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:28px 28px;
+
+}
+
+
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.summary-corner{
+
+    position:absolute;
+
+    width:42px;
+
+    height:42px;
+
+    pointer-events:none;
+
+}
+
+
+.corner-tl{
+
+    left:18px;
+
+    top:18px;
+
+    border-left:1px solid rgba(242,106,9,.65);
+
+    border-top:1px solid rgba(242,106,9,.65);
+
+}
+
+
+.corner-br{
+
+    right:18px;
+
+    bottom:18px;
+
+    border-right:1px solid rgba(242,106,9,.45);
+
+    border-bottom:1px solid rgba(242,106,9,.45);
+
+}
+
+
+.corner-tl::after,
+.corner-br::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+
+    height:4px;
+
+    background:var(--orange);
+
+    box-shadow:
+
+        0 0 10px rgba(242,106,9,.6);
+
+}
+
+
+.corner-tl::after{
+
+    left:-3px;
+
+    top:-3px;
+
+}
+
+
+.corner-br::after{
+
+    right:-3px;
+
+    bottom:-3px;
+
+}
+
+
+/* =========================================================
+   SUMMARY VISUAL
+========================================================= */
+
+.summary-visual{
+
+    position:relative;
+
+    width:155px;
+
+    height:155px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:3;
+
+}
+
+
+.summary-axis{
+
+    position:absolute;
+
+    background:rgba(255,255,255,.08);
+
+    pointer-events:none;
+
+}
+
+
+.axis-horizontal{
+
+    width:155px;
+
+    height:1px;
+
+    left:0;
+
+    top:50%;
+
+}
+
+
+.axis-vertical{
+
+    width:1px;
+
+    height:155px;
+
+    left:50%;
+
+    top:0;
+
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.summary-orbit{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+}
+
+
+.orbit-one{
+
+    width:122px;
+
+    height:122px;
+
+    border:1px solid rgba(242,106,9,.42);
+
+    border-right-color:transparent;
+
+    animation:
+
+        orbitOne
+
+        8s
+
+        linear
+
+        infinite;
+
+}
+
+
+.orbit-two{
+
+    width:145px;
+
+    height:76px;
+
+    transform:rotate(-35deg);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-left-color:transparent;
+
+    animation:
+
+        orbitTwo
+
+        10s
+
+        linear
+
+        infinite;
+
+}
+
+
+.orbit-three{
+
+    width:98px;
+
+    height:98px;
+
+    border:1px dashed rgba(242,106,9,.20);
+
+    animation:
+
+        orbitThree
+
+        14s
+
+        linear
+
+        infinite reverse;
+
+}
+
+
+@keyframes orbitOne{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitTwo{
+
+    to{
+
+        transform:rotate(-395deg);
+
+    }
+
+}
+
+
+@keyframes orbitThree{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   CORE
+========================================================= */
+
+.summary-core{
+
+    position:relative;
+
+    z-index:5;
+
+    width:88px;
+
+    height:88px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #21445F 0%,
+            #112A42 42%,
+            #071522 100%
+        );
+
+    border:1px solid rgba(242,106,9,.9);
+
+    box-shadow:
+
+        0 0 0 7px rgba(242,106,9,.07),
+
+        0 0 0 15px rgba(242,106,9,.025),
+
+        0 18px 35px rgba(0,0,0,.3);
+
+    animation:
+
+        coreFloat
+
+        4s
+
+        ease-in-out
+
+        infinite;
+
+}
+
+
+.summary-core strong{
+
+    margin:1px 0;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:22px;
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    color:#fff;
+
+}
+
+
+.core-small{
+
+    font-size:5px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    color:rgba(255,255,255,.5);
+
+}
+
+
+@keyframes coreFloat{
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.visual-dot{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+
+        0 0 12px rgba(242,106,9,.65);
+
+    z-index:6;
+
+}
+
+
+.dot-one{
+
+    top:22px;
+
+    right:23px;
+
+}
+
+
+.dot-two{
+
+    bottom:27px;
+
+    left:22px;
+
+}
+
+
+.dot-three{
+
+    top:73px;
+
+    right:2px;
+
+    width:3px;
+
+    height:3px;
+
+    opacity:.65;
+
+}
+
+
+/* =========================================================
+   SUMMARY CONTENT
+========================================================= */
+
+.summary-content{
+
+    position:relative;
+
+    z-index:4;
+
+    min-width:0;
+
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+.summary-kicker{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:10px;
+
+}
+
+
+.kicker-line{
+
+    width:20px;
+
+    height:1px;
+
+    flex:0 0 auto;
+
+    background:var(--orange);
+
+}
+
+
+.summary-kicker .process-label{
+
+    margin:0;
+
+    font-size:9px;
+
+    letter-spacing:1.8px;
+
+}
+
+
+.kicker-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-left:5px;
+
+    padding-left:10px;
+
+    border-left:1px solid rgba(255,255,255,.14);
+
+    color:rgba(255,255,255,.42);
+
+    font-size:7px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+
+.kicker-status i{
+
+    display:block;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+
+        0 0 8px rgba(242,106,9,.7);
+
+}
+
+
+/* =========================================================
+   SUMMARY HEADING
+========================================================= */
+
+.summary-content h3{
+
+    max-width:650px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(
+        27px,
+        3.5vw,
+        39px
+    );
+
+    line-height:1.08;
+
+    letter-spacing:-1.5px;
+
+    font-weight:800;
+
+}
+
+
+.summary-content h3 span{
+
+    color:var(--orange);
+
+}
+
+
+/* =========================================================
+   SUMMARY INTRO
+========================================================= */
+
+.summary-intro{
+
+    max-width:680px;
+
+    margin-top:13px;
+
+    color:rgba(255,255,255,.52);
+
+    font-size:11px;
+
+    line-height:1.75;
+
+}
+
+
+.summary-intro strong{
+
+    color:rgba(255,255,255,.82);
+
+}
+
+
+/* =========================================================
+   PROCESS FLOW
+========================================================= */
+
+.process-flow{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    margin-top:23px;
+
+    gap:0;
+
+}
+
+
+/* =========================================================
+   FLOW BUTTON
+========================================================= */
+
+.process-flow-btn{
+
+    position:relative;
+
+    z-index:5;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    flex:1 1 0;
+
+    min-width:0;
+
+    height:39px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    padding:0 8px;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    border-radius:2px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    color:#fff;
+
+    font-family:"DM Sans",sans-serif;
+
+    cursor:pointer;
+
+    pointer-events:auto;
+
+    transition:
+
+        transform .3s var(--ease),
+
+        border-color .3s ease,
+
+        background .3s ease,
+
+        box-shadow .3s ease;
+
+}
+
+
+.process-flow-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:2px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(242,106,9,.12),
+            transparent 55%
+        );
+
+    opacity:0;
+
+    transition:.3s ease;
+
+}
+
+
+.process-flow-btn:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--orange);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(242,106,9,.18),
+            rgba(242,106,9,.06)
+        );
+
+    box-shadow:
+
+        0 10px 22px rgba(0,0,0,.18),
+
+        0 0 0 1px rgba(242,106,9,.08);
+
+}
+
+
+.process-flow-btn:hover::before{
+
+    opacity:1;
+
+}
+
+
+.process-flow-btn:active{
+
+    transform:
+
+        translateY(-1px)
+
+        scale(.98);
+
+}
+
+
+.process-flow-btn:focus-visible{
+
+    outline:2px solid rgba(242,106,9,.5);
+
+    outline-offset:4px;
+
+}
+
+
+/* =========================================================
+   ACTIVE ROADMAP BUTTON
+========================================================= */
+
+.process-flow-btn.active{
+
+    border-color:var(--orange);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(242,106,9,.20),
+            rgba(242,106,9,.07)
+        );
+
+    box-shadow:
+
+        0 0 0 1px rgba(242,106,9,.12),
+
+        0 8px 22px rgba(0,0,0,.14);
+
+}
+
+
+/* =========================================================
+   FLOW NUMBER
+========================================================= */
+
+.flow-number{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:20px;
+
+    height:20px;
+
+    flex:0 0 auto;
+
+    border:1px solid rgba(255,106,0,.934);
+
+    color:var(--orange);
+
+    font-size:7px;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+
+.flow-text{
+
+    position:relative;
+
+    z-index:2;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.9px;
+
+}
+
+
+/* =========================================================
+   FLOW CONNECTOR
+========================================================= */
+
+.flow-connector{
+
+    position:relative;
+
+    flex:0 0 12px;
+
+    width:12px;
+
+    min-width:12px;
+
+    height:1px;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(242,106,9,.75) 0,
+            rgba(242,106,9,.75) 4px,
+            transparent 4px,
+            transparent 8px
+        );
+
+    opacity:.65;
+
+}
+
+
+.flow-connector::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-1px;
+
+    top:50%;
+
+    width:5px;
+
+    height:5px;
+
+    border-top:1px solid var(--orange);
+
+    border-right:1px solid var(--orange);
+
+    transform:
+
+        translateY(-50%)
+
+        rotate(45deg);
+
+}
+
+
+/* =========================================================
+   SUMMARY BOTTOM
+========================================================= */
+
+.summary-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:17px;
+
+    padding-top:13px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.summary-bottom-mark{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:25px;
+
+    height:18px;
+
+    flex:0 0 auto;
+
+    border:1px solid rgba(242,106,9,.4);
+
+    color:var(--orange);
+
+    font-size:6px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+}
+
+
+.summary-bottom p{
+
+    color:rgba(255,255,255,.38);
+
+    font-size:8px;
+
+    letter-spacing:.2px;
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s var(--ease);
+
+}
+
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =========================================================
+   STAGGER
+========================================================= */
+
+.process-3d-card:nth-child(1){
+
+    transition-delay:.05s;
+
+}
+
+
+.process-3d-card:nth-child(3){
+
+    transition-delay:.10s;
+
+}
+
+
+.process-3d-card:nth-child(5){
+
+    transition-delay:.15s;
+
+}
+
+
+.process-3d-card:nth-child(7){
+
+    transition-delay:.20s;
+
+}
+
+
+.process-3d-card:nth-child(9){
+
+    transition-delay:.25s;
+
+}
+
+
+.process-3d-card:nth-child(11){
+
+    transition-delay:.30s;
+
+}
+
+
+.process-3d-card:nth-child(13){
+
+    transition-delay:.35s;
+
+}
+
+
+/* =========================================================
+   TARGET CARD
+========================================================= */
+
+.process-3d-card.workflow-target-active{
+
+    border-color:
+
+        rgba(242,106,9,.85);
+
+    box-shadow:
+
+        0 18px 0 rgba(242,106,9,.12),
+
+        0 35px 75px rgba(15,35,57,.18),
+
+        0 0 0 5px rgba(242,106,9,.10);
+
+    animation:
+
+        workflowTargetPulse
+
+        1.2s
+
+        var(--ease);
+
+}
+
+
+@keyframes workflowTargetPulse{
+
+    0%{
+
+        box-shadow:
+
+            0 12px 0 rgba(242,106,9,.06),
+
+            0 28px 60px rgba(15,35,57,.10),
+
+            0 0 0 0 rgba(242,106,9,.30);
+
+    }
+
+    35%{
+
+        box-shadow:
+
+            0 18px 0 rgba(242,106,9,.16),
+
+            0 35px 80px rgba(15,35,57,.18),
+
+            0 0 0 9px rgba(242,106,9,.12);
+
+    }
+
+    70%{
+
+        box-shadow:
+
+            0 18px 0 rgba(242,106,9,.12),
+
+            0 35px 75px rgba(15,35,57,.17),
+
+            0 0 0 5px rgba(242,106,9,.08);
+
+    }
+
+    100%{
+
+        box-shadow:
+
+            0 12px 0 rgba(15,35,57,.035),
+
+            0 28px 60px rgba(15,35,57,.08),
+
+            0 0 0 0 rgba(242,106,9,0);
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .process-offset{
+
+        margin-left:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET SUMMARY
+========================================================= */
+
+@media(max-width:900px){
+
+    /* =====================================================
+       HERO
+       HEIGHT: 600px
+    ====================================================== */
+
+    .workflow-hero{
+
+        height:600px;
+
+        padding-left:4%;
+
+        padding-right:4%;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:clamp(
+            40px,
+            7.2vw,
+            64px
+        );
+
+        line-height:1;
+
+        letter-spacing:-2.5px;
+
+    }
+
+
+    .workflow-hero p{
+
+        max-width:760px;
+
+        font-size:14px;
+
+        line-height:1.75;
+
+    }
+
+
+    .process-summary{
+
+        grid-template-columns:1fr;
+
+        padding:42px 35px;
+
+        text-align:center;
+
+        gap:24px;
+
+    }
+
+
+    .summary-visual{
+
+        margin:0 auto;
+
+    }
+
+
+    .summary-kicker{
+
+        justify-content:center;
+
+    }
+
+
+    .summary-intro{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+
+    .process-flow{
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(4,minmax(0,1fr));
+
+        gap:7px;
+
+    }
+
+
+    .process-flow-btn{
+
+        width:100%;
+
+        flex:none;
+
+    }
+
+
+    .flow-connector{
+
+        display:none;
+
+    }
+
+
+    .summary-bottom{
+
+        justify-content:center;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .workflow-hero{
+
+        height:600px;
+
+        padding-left:20px;
+
+        padding-right:20px;
+
+    }
+
+
+    .workflow-hero-line{
+
+        width:46px;
+
+        height:3px;
+
+        margin-bottom:14px;
+
+    }
+
+
+    .workflow-hero-eyebrow{
+
+        margin-bottom:13px;
+
+        font-size:10px;
+
+        letter-spacing:2px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:clamp(
+            37px,
+            11.5vw,
+            52px
+        );
+
+        line-height:1.02;
+
+        letter-spacing:-2px;
+
+    }
+
+
+    .workflow-hero p{
+
+        margin-top:17px;
+
+        font-size:14px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero::before{
+
+        width:450px;
+
+        height:450px;
+
+        right:-260px;
+
+        top:-130px;
+
+    }
+
+
+    .workflow-hero::after{
+
+        width:300px;
+
+        height:300px;
+
+        right:-100px;
+
+        bottom:-200px;
+
+    }
+
+
+    .container{
+
+        width:calc(100% - 28px);
+
+    }
+
+
+    .workflow{
+
+        padding:55px 0 75px;
+
+    }
+
+
+    .workflow-heading{
+
+        margin-bottom:35px;
+
+        padding:0 3px;
+
+    }
+
+
+    .workflow-heading h1{
+
+        font-size:38px;
+
+        letter-spacing:-2px;
+
+    }
+
+
+    .workflow-heading p{
+
+        margin-top:15px;
+
+        font-size:11px;
+
+        line-height:1.75;
+
+    }
+
+
+    /* =====================================================
+       PROCESS CARD
+    ====================================================== */
+
+    .process-3d-card{
+
+        min-height:auto;
+
+        padding:24px 20px 27px;
+
+        transform-style:flat;
+
+    }
+
+
+    .process-top{
+
+        margin-bottom:23px;
+
+    }
+
+
+    .process-number{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:10px;
+
+        transform:rotate(-3deg);
+
+        box-shadow:
+
+            6px 6px 0 var(--orange),
+
+            0 10px 20px rgba(15,35,57,.14);
+
+    }
+
+
+    .process-icon{
+
+        width:58px;
+
+        height:58px;
+
+        font-size:28px;
+
+        border-radius:16px;
+
+        transform:rotate(3deg);
+
+    }
+
+
+    .process-content{
+
+        transform:none;
+
+    }
+
+
+    .process-label{
+
+        font-size:8px;
+
+        letter-spacing:1.7px;
+
+    }
+
+
+    .process-content h3{
+
+        margin-top:8px;
+
+        font-size:20px;
+
+        line-height:1.18;
+
+        letter-spacing:-.6px;
+
+    }
+
+
+    .process-content p{
+
+        margin-top:12px;
+
+        font-size:12px;
+
+        line-height:1.75;
+
+    }
+
+
+    /* =====================================================
+       CONNECTOR
+    ====================================================== */
+
+    .process-connector{
+
+        height:60px;
+
+    }
+
+
+    .process-connector span{
+
+        width:32px;
+
+        height:32px;
+
+        font-size:14px;
+
+    }
+
+
+    /* =====================================================
+       SUMMARY
+    ====================================================== */
+
+    .process-summary{
+
+        width:100%;
+
+        margin-top:48px;
+
+        padding:32px 17px 24px;
+
+        min-height:auto;
+
+        gap:22px;
+
+        border-radius:0;
+
+    }
+
+
+    .summary-corner{
+
+        width:30px;
+
+        height:30px;
+
+    }
+
+
+    .corner-tl{
+
+        left:12px;
+
+        top:12px;
+
+    }
+
+
+    .corner-br{
+
+        right:12px;
+
+        bottom:12px;
+
+    }
+
+
+    /* =====================================================
+       SUMMARY VISUAL
+    ====================================================== */
+
+    .summary-visual{
+
+        width:118px;
+
+        height:118px;
+
+    }
+
+
+    .axis-horizontal{
+
+        width:118px;
+
+    }
+
+
+    .axis-vertical{
+
+        height:118px;
+
+    }
+
+
+    .orbit-one{
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+
+    .orbit-two{
+
+        width:112px;
+
+        height:58px;
+
+    }
+
+
+    .orbit-three{
+
+        width:82px;
+
+        height:82px;
+
+    }
+
+
+    .summary-core{
+
+        width:68px;
+
+        height:68px;
+
+    }
+
+
+    .summary-core strong{
+
+        font-size:17px;
+
+    }
+
+
+    .core-small{
+
+        font-size:4px;
+
+        letter-spacing:1.2px;
+
+    }
+
+
+    .dot-one{
+
+        top:15px;
+
+        right:15px;
+
+    }
+
+
+    .dot-two{
+
+        bottom:18px;
+
+        left:15px;
+
+    }
+
+
+    .dot-three{
+
+        top:56px;
+
+        right:0;
+
+    }
+
+
+    /* =====================================================
+       SUMMARY CONTENT
+    ====================================================== */
+
+    .summary-content{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+    .summary-kicker{
+
+        justify-content:center;
+
+        gap:6px;
+
+        flex-wrap:wrap;
+
+        margin-bottom:9px;
+
+    }
+
+
+    .kicker-line{
+
+        width:15px;
+
+    }
+
+
+    .summary-kicker .process-label{
+
+        font-size:7px;
+
+        letter-spacing:1.3px;
+
+    }
+
+
+    .kicker-status{
+
+        margin-left:0;
+
+        padding-left:7px;
+
+        font-size:6px;
+
+    }
+
+
+    .summary-content h3{
+
+        max-width:none;
+
+        font-size:25px;
+
+        line-height:1.1;
+
+        letter-spacing:-1px;
+
+    }
+
+
+    .summary-intro{
+
+        max-width:none;
+
+        margin-top:11px;
+
+        font-size:10px;
+
+        line-height:1.7;
+
+    }
+
+
+    /* =====================================================
+       MOBILE ROADMAP
+    ====================================================== */
+
+    .process-flow{
+
+        display:grid;
+
+        grid-template-columns:
+
+            minmax(0,1fr)
+
+            minmax(0,1fr);
+
+        gap:7px;
+
+        width:100%;
+
+        margin-top:20px;
+
+    }
+
+
+    .process-flow-btn{
+
+        width:100%;
+
+        min-width:0;
+
+        height:39px;
+
+        display:flex;
+
+        justify-content:flex-start;
+
+        padding:0 8px;
+
+        gap:7px;
+
+    }
+
+
+    .flow-number{
+
+        width:18px;
+
+        height:18px;
+
+        flex:0 0 18px;
+
+        font-size:6px;
+
+    }
+
+
+    .flow-text{
+
+        font-size:7px;
+
+        letter-spacing:.6px;
+
+        white-space:nowrap;
+
+    }
+
+
+    .flow-connector{
+
+        display:none;
+
+    }
+
+
+    /* =====================================================
+       BOTTOM
+    ====================================================== */
+
+    .summary-bottom{
+
+        justify-content:flex-start;
+
+        text-align:left;
+
+        margin-top:16px;
+
+        padding-top:12px;
+
+    }
+
+
+    .summary-bottom-mark{
+
+        width:24px;
+
+        height:18px;
+
+    }
+
+
+    .summary-bottom p{
+
+        font-size:7px;
+
+        line-height:1.4;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    /* =====================================================
+       HERO
+       HEIGHT: 620px
+    ====================================================== */
+
+    .workflow-hero{
+
+        height:620px;
+
+        padding-left:18px;
+
+        padding-right:18px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:40px;
+
+        line-height:1.03;
+
+        letter-spacing:-1.8px;
+
+    }
+
+
+    .workflow-hero p{
+
+        margin-top:16px;
+
+        font-size:13px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero-eyebrow{
+
+        font-size:9px;
+
+        letter-spacing:1.8px;
+
+    }
+
+
+    .container{
+
+        width:calc(100% - 24px);
+
+    }
+
+
+    .workflow{
+
+        padding:48px 0 65px;
+
+    }
+
+
+    .workflow-heading{
+
+        margin-bottom:30px;
+
+    }
+
+
+    .orange-line{
+
+        width:28px;
+
+        margin-bottom:12px;
+
+    }
+
+
+    .eyebrow{
+
+        font-size:8px;
+
+        letter-spacing:1.7px;
+
+    }
+
+
+    .workflow-heading h1{
+
+        font-size:34px;
+
+        letter-spacing:-1.8px;
+
+    }
+
+
+    .workflow-heading p{
+
+        font-size:10px;
+
+    }
+
+
+    /* CARD */
+
+    .process-3d-card{
+
+        padding:22px 17px 24px;
+
+    }
+
+
+    .process-number{
+
+        width:43px;
+
+        height:43px;
+
+        box-shadow:
+
+            5px 5px 0 var(--orange),
+
+            0 8px 16px rgba(15,35,57,.13);
+
+    }
+
+
+    .process-icon{
+
+        width:54px;
+
+        height:54px;
+
+        font-size:26px;
+
+        border-radius:14px;
+
+    }
+
+
+    .process-content h3{
+
+        font-size:18px;
+
+    }
+
+
+    .process-content p{
+
+        font-size:11.5px;
+
+        line-height:1.75;
+
+    }
+
+
+    .process-connector{
+
+        height:52px;
+
+    }
+
+
+    .process-connector span{
+
+        width:29px;
+
+        height:29px;
+
+        font-size:13px;
+
+    }
+
+
+    /* SUMMARY */
+
+    .process-summary{
+
+        margin-top:42px;
+
+        padding:28px 13px 21px;
+
+        gap:19px;
+
+    }
+
+
+    .summary-visual{
+
+        width:108px;
+
+        height:108px;
+
+    }
+
+
+    .axis-horizontal{
+
+        width:108px;
+
+    }
+
+
+    .axis-vertical{
+
+        height:108px;
+
+    }
+
+
+    .summary-core{
+
+        width:62px;
+
+        height:62px;
+
+    }
+
+
+    .summary-core strong{
+
+        font-size:16px;
+
+    }
+
+
+    .orbit-one{
+
+        width:92px;
+
+        height:92px;
+
+    }
+
+
+    .orbit-two{
+
+        width:103px;
+
+        height:53px;
+
+    }
+
+
+    .orbit-three{
+
+        width:76px;
+
+        height:76px;
+
+    }
+
+
+    .summary-content h3{
+
+        font-size:23px;
+
+    }
+
+
+    .summary-intro{
+
+        font-size:9px;
+
+        line-height:1.65;
+
+    }
+
+
+    /* ROADMAP */
+
+    .process-flow{
+
+        gap:6px;
+
+        margin-top:18px;
+
+    }
+
+
+    .process-flow-btn{
+
+        height:36px;
+
+        padding:0 6px;
+
+        gap:5px;
+
+    }
+
+
+    .flow-number{
+
+        width:17px;
+
+        height:17px;
+
+        flex-basis:17px;
+
+        font-size:5.5px;
+
+    }
+
+
+    .flow-text{
+
+        font-size:6.5px;
+
+        letter-spacing:.45px;
+
+    }
+
+
+    .summary-bottom{
+
+        gap:7px;
+
+        margin-top:14px;
+
+    }
+
+
+    .summary-bottom p{
+
+        font-size:6.5px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media(max-width:360px){
+
+    /* =====================================================
+       HERO
+       HEIGHT: 640px
+    ====================================================== */
+
+    .workflow-hero{
+
+        height:640px;
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+
+    .workflow-hero h1{
+
+        font-size:36px;
+
+        line-height:1.04;
+
+        letter-spacing:-1.5px;
+
+    }
+
+
+    .workflow-hero p{
+
+        font-size:12.5px;
+
+        line-height:1.8;
+
+    }
+
+
+    .workflow-hero-eyebrow{
+
+        font-size:8.5px;
+
+        letter-spacing:1.6px;
+
+    }
+
+
+    .container{
+
+        width:calc(100% - 20px);
+
+    }
+
+
+    .workflow-heading h1{
+
+        font-size:31px;
+
+    }
+
+
+    .process-3d-card{
+
+        padding-left:15px;
+
+        padding-right:15px;
+
+    }
+
+
+    .process-content h3{
+
+        font-size:17px;
+
+    }
+
+
+    .process-content p{
+
+        font-size:11px;
+
+    }
+
+
+    .process-summary{
+
+        padding-left:10px;
+
+        padding-right:10px;
+
+    }
+
+
+    .summary-content h3{
+
+        font-size:21px;
+
+    }
+
+
+    .flow-text{
+
+        font-size:6px;
+
+        letter-spacing:.2px;
+
+    }
+
+
+    .flow-number{
+
+        width:16px;
+
+        height:16px;
+
+        flex-basis:16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
