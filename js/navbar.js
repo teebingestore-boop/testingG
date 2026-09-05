@@ -1,17 +1,24 @@
 /* =========================================================
-   GRID DETAILING — NAVBAR JAVASCRIPT
+   GRID STEEL DETAILING — NAVBAR JAVASCRIPT
 
-   FINAL ACTIVE STATE FIX
+   FINAL STABLE NAVBAR
+
+   ACTIVE PAGE:
+   HOME
+   ABOUT US
+   STRUCTURAL STEEL DETAILING
+   PROJECTS
+   HOW WE WORK
+   CONTACT US
+   GET A QUOTE
 
    GET A QUOTE
    → contact-us.html
    → GET A QUOTE ACTIVE
-   → CONTACT US NOT ACTIVE
 
    CONTACT US
    → contact-us.html
    → CONTACT US ACTIVE
-   → GET A QUOTE NOT ACTIVE
 
    Desktop + Mobile
    Stable
@@ -38,17 +45,7 @@
        STATE KEY
     ===================================================== */
 
-    const ACTIVE_SOURCE_KEY =
-        "gridNavbarActiveSource";
-
-
-    /*
-       Possible values:
-
-       "quote"
-       "contact"
-       "other"
-    */
+    const ACTIVE_SOURCE_KEY = "gridNavbarActiveSource";
 
 
     /* =====================================================
@@ -275,7 +272,7 @@
 
 
         /* =================================================
-           SET ACTIVE — GET A QUOTE
+           ACTIVATE QUOTE
         ================================================= */
 
         function activateQuote() {
@@ -294,11 +291,6 @@
 
             }
 
-
-            /*
-             * VERY IMPORTANT:
-             * CONTACT US ko forcefully inactive rakho.
-             */
 
             if (el.contactBtn) {
 
@@ -320,7 +312,7 @@
 
 
         /* =================================================
-           SET ACTIVE — CONTACT US
+           ACTIVATE CONTACT
         ================================================= */
 
         function activateContact() {
@@ -358,7 +350,7 @@
 
 
         /* =================================================
-           SET ACTIVE — NORMAL PAGE
+           ACTIVATE NORMAL PAGE
         ================================================= */
 
         function activatePage(page) {
@@ -366,24 +358,49 @@
             clearActiveStates();
 
 
-            const item =
-                document.querySelector(
-                    '.grid-nav-item[data-page="' +
-                    page +
-                    '"]'
-                );
-
-
-            if (item) {
-
-                item.classList.add("active");
-
-                item.setAttribute(
-                    "aria-current",
-                    "page"
-                );
-
+            if (!page) {
+                return;
             }
+
+
+            const links =
+                el.nav.querySelectorAll(
+                    ".grid-nav-item[data-page]"
+                );
+
+
+            links.forEach(function (item) {
+
+                const itemPage =
+                    (
+                        item.getAttribute("data-page") || ""
+                    )
+                    .split("/")
+                    .pop()
+                    .toLowerCase();
+
+
+                const targetPage =
+                    page
+                        .split("/")
+                        .pop()
+                        .toLowerCase();
+
+
+                if (
+                    itemPage === targetPage
+                ) {
+
+                    item.classList.add("active");
+
+                    item.setAttribute(
+                        "aria-current",
+                        "page"
+                    );
+
+                }
+
+            });
 
         }
 
@@ -394,14 +411,47 @@
 
         function getCurrentPage() {
 
+            let pathname =
+                window.location.pathname || "";
+
+
+            pathname =
+                pathname
+                    .split("?")[0]
+                    .split("#")[0];
+
+
             let page =
-                window.location.pathname
+                pathname
                     .split("/")
-                    .pop()
+                    .filter(Boolean)
+                    .pop();
+
+
+            if (
+                !page ||
+                page === ""
+            ) {
+
+                page = "index.html";
+
+            }
+
+
+            page =
+                decodeURIComponent(page)
                     .toLowerCase();
 
 
-            if (!page) {
+            /*
+             * Netlify / root URL
+             * /  → index.html
+             */
+
+            if (
+                page === "" ||
+                page === "/"
+            ) {
 
                 page = "index.html";
 
@@ -439,10 +489,12 @@
             ) {
 
                 /*
-                 * GET A QUOTE se aaya hai
+                 * GET A QUOTE se contact page par aaya
                  */
 
-                if (source === "quote") {
+                if (
+                    source === "quote"
+                ) {
 
                     activateQuote();
 
@@ -455,20 +507,6 @@
                  * Direct CONTACT US
                  */
 
-                if (source === "contact") {
-
-                    activateContact();
-
-                    return;
-
-                }
-
-
-                /*
-                 * Agar koi source nahi hai,
-                 * default CONTACT US.
-                 */
-
                 activateContact();
 
                 return;
@@ -477,15 +515,33 @@
 
 
             /* =============================================
-               OTHER PAGES
+               ALL OTHER PAGES
             ============================================= */
 
-            sessionStorage.removeItem(
-                ACTIVE_SOURCE_KEY
+            /*
+             * Quote/contact source sirf contact page
+             * ke liye relevant hai.
+             */
+
+            if (
+                source === "quote" ||
+                source === "contact"
+            ) {
+
+                sessionStorage.removeItem(
+                    ACTIVE_SOURCE_KEY
+                );
+
+            }
+
+
+            /*
+             * EXACT CURRENT PAGE ACTIVE
+             */
+
+            activatePage(
+                currentPage
             );
-
-
-            activatePage(currentPage);
 
         }
 
@@ -500,20 +556,11 @@
                 "click",
                 function () {
 
-                    /*
-                     * BEFORE PAGE CHANGES
-                     * source = quote
-                     */
-
                     sessionStorage.setItem(
                         ACTIVE_SOURCE_KEY,
                         "quote"
                     );
 
-
-                    /*
-                     * Immediately update UI
-                     */
 
                     activateQuote();
 
@@ -527,7 +574,7 @@
 
 
         /* =================================================
-           NAV LINKS
+           NORMAL NAV LINKS
         ================================================= */
 
         el.nav
@@ -541,9 +588,14 @@
                     function () {
 
                         const page =
-                            link.getAttribute(
-                                "data-page"
-                            );
+                            (
+                                link.getAttribute(
+                                    "data-page"
+                                ) || ""
+                            )
+                            .split("/")
+                            .pop()
+                            .toLowerCase();
 
 
                         /* =================================
@@ -551,8 +603,8 @@
                         ================================= */
 
                         if (
-                            page ===
-                            "contact-us.html"
+                            page === "contact-us.html" ||
+                            page === "contact.html"
                         ) {
 
                             sessionStorage.setItem(
@@ -567,18 +619,19 @@
 
 
                         /* =================================
-                           OTHER NAV LINKS
+                           OTHER PAGES
                         ================================= */
 
                         else {
 
-                            sessionStorage.setItem(
-                                ACTIVE_SOURCE_KEY,
-                                "other"
+                            sessionStorage.removeItem(
+                                ACTIVE_SOURCE_KEY
                             );
 
 
-                            activatePage(page);
+                            activatePage(
+                                page
+                            );
 
                         }
 
@@ -605,13 +658,13 @@
                     "click",
                     function () {
 
-                        sessionStorage.setItem(
-                            ACTIVE_SOURCE_KEY,
-                            "other"
+                        sessionStorage.removeItem(
+                            ACTIVE_SOURCE_KEY
                         );
 
 
                         clearActiveStates();
+
 
                         closeMenu();
 
@@ -694,7 +747,7 @@
 
 
         /* =================================================
-           INITIAL
+           INITIAL ACTIVE STATE
         ================================================= */
 
         restoreActiveState();
@@ -714,7 +767,7 @@
             "DOMContentLoaded",
             initNavbar,
             {
-                once:true
+                once: true
             }
         );
 
